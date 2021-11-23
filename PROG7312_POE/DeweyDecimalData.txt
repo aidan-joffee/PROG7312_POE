@@ -1,0 +1,104 @@
+0.Computer science, information & general works 
+0.Computer science, knowledge & systems 
+2.The book 
+3.Systems
+5.Computer programming, programs & data 
+6.Special computer methods
+10.Bibliographies 
+11.Bibliographies 
+12.Bibliographies of individuals
+14.Of anonymous & pseudonymous works 
+15.Bibliographies of works from specific places
+60.Associations, organizations & museums
+61.Organizations in North America 
+62.Organizations in British Isles; in England
+68.Organizations in other geographic areas 
+69.Museum science 
+70.News media, journalism & publishing
+70.News media, journalism & publishing 
+71.Newspapers in North America
+72.Newspapers in British Isles; in England 
+73.Newspapers in central Europe; in Germany 
+90.Manuscripts & rare books
+91.Manuscripts 
+92.Block books
+94.Printed books 
+95.Books notable for bindings
+100.Philosophy & psychology 
+100.Philosophy 
+100.Philosophy & psychology 
+101.Theory of philosophy 
+102.Miscellany 
+103.Dictionaries & encyclopaedias
+110.Metaphysics 
+113.Cosmology 
+114.Space 
+115.Time 
+116.Change
+120.Epistemology 
+120.Epistemology, causation & humankind 
+121.Epistemology 
+122Causation 
+123.Determinism & indeterminism
+130.Parapsychology & occultism 
+130.Parapsychology & occultism 
+131.Parapsychological & occult method
+137.Divinatory graphologies
+138.Physiognomy
+140.Philosophical schools of thought
+140.Specific philosophical schools 
+141.Idealism & related systems 
+142.Critical philosophies 
+143.Bergsonism & intuitionism
+500.Science
+500.Science 
+500.Natural sciences & mathematics 
+501.Philosophy & theory 
+502.Miscellany
+505.Serial publications
+510.Mathematics 
+510.Mathematics 
+511.General principles of mathematics 
+512.Algebra 
+513.Arithmetic
+520.Astronomy 
+520.Astronomy & allied sciences 
+521.Celestial mechanics 
+522.Techniques, equipment & materials 
+523.Specific celestial bodies & phenomena
+530.Physics 
+530.Physics 
+531.Classical mechanics; solid mechanics 
+532.Fluid mechanics; liquid mechanics 
+533.Gas mechanics
+540.Chemistry
+540.Chemistry & allied sciences 
+541.Physical chemistry 
+542.Techniques, equipment & materials 
+543.Analytical chemistries
+600.Technology 
+600.Technology 
+600.Technology 
+601.Philosophy & theory 
+602.Miscellany 
+603.Dictionaries & encyclopaedias
+610.Medicine & health 
+610.Medicine & health 
+611.Human anatomy, cytology & histology 
+612.Human physiology 
+613.Personal health & safety
+620.Engineering 
+620.Engineering & allied operations 
+621.Applied physics 
+622.Mining & related operations 
+623.Military & nautical engineering
+630.Agriculture 
+630.Agriculture & related technologies 
+631.Techniques, equipment & materials 
+632.Plant injuries, diseases & pests 
+633.Field & plantation crops
+640.Home & family management
+640.Home & family management 
+641.Food & drink 
+642.Meals & table service 
+643.Housing & household equipment
