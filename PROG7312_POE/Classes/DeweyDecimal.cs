@@ -42,7 +42,8 @@ namespace PROG7312_POE.Classes
         //ToString method
         override public string ToString()
         {
-            string callNum = String.Format("{0} {1}", this.callNumberPart, this.descriptionPart);
+            string callpart = this.CallNumberPart.ToString("000");
+            string callNum = String.Format("{0} {1}",callpart, this.descriptionPart);
             return callNum;
         }
     }

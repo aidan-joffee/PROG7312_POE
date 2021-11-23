@@ -14,10 +14,12 @@ namespace PROG7312_POE.Classes
         //entire tree is stored in the root
         private TreeNode root { get; set; }
         private Random random = new Random();
+        private int mainIndex;
+        private int catIndex;
         //each value here is the answer to the question generated for the different levels
-        private DeweyDecimal MainValue { get; set; }
-        private DeweyDecimal CategoryValue { get; set; }
-        private DeweyDecimal SubCatValue { get; set; }
+        public DeweyDecimal MainValue { get; set; }
+        public DeweyDecimal CategoryValue { get; set; }
+        public DeweyDecimal SubCatValue { get; set; }
 
 
         //----------------------------------------------------------------------------------
@@ -88,16 +90,97 @@ namespace PROG7312_POE.Classes
         /// <returns></returns>
         public void RandomNode()
         {  
-            int main = random.Next(0, 3); //for the 4 mains
-            int category = random.Next(0, 4); //for the 5 categories
-            int subCategory = random.Next(0, 3); //for the 4 sub categories
+            this.mainIndex = random.Next(0, 3); //for the 4 mains
+            this.catIndex = random.Next(0, 4); //for the 5 categories
+            int subCatIndex = random.Next(0, 3); //for the 4 sub categories
 
             //getting dewey decimal value of each child/parent for the answer
-            this.MainValue = root.Children[main].Value;
-            this.CategoryValue = root.Children[main].Children[category].Value;
-            this.SubCatValue = root.Children[main].Children[category].Children[subCategory].Value;
+            this.MainValue = root.Children[mainIndex].Value;
+            this.CategoryValue = root.Children[mainIndex].Children[catIndex].Value;
+            this.SubCatValue = root.Children[mainIndex].Children[catIndex].Children[subCatIndex].Value;
         }
 
+        //----------------------------------------------------------------------------------
+        /// <summary>
+        /// Returns a list answers of answers for the main 
+        /// </summary>
+        /// <returns></returns>
+        public List<DeweyDecimal> SelectMainAnswers()
+        {
+            List<DeweyDecimal> mainAnswers = new List<DeweyDecimal>();
+            mainAnswers.Add(MainValue); //guarentees answer is added
+            var values = root.Children.ToList();
+
+            //adding from root
+            while (mainAnswers.Count < 4)
+            {
+                //get random index
+                int index = random.Next(0, values.Count);
+                var value = values[index];
+                //remove that answer
+                values.RemoveAt(index);
+                //if it isnt the answer, add it to list
+                if (value.Value != MainValue)
+                {
+                    mainAnswers.Add(value.Value);
+                }
+            }
+            return mainAnswers;             
+        }
+
+        //----------------------------------------------------------------------------------
+        /// <summary>
+        /// Returns a list answers of answers for the category
+        /// </summary>
+        public List<DeweyDecimal> SelectCategoryAnswers()
+        {
+            List<DeweyDecimal> categoryAnswers = new List<DeweyDecimal>();
+            categoryAnswers.Add(CategoryValue); //guarentees answer is added
+            var values = root.Children[this.mainIndex].Children.ToList();
+
+            //adding from root
+            while (categoryAnswers.Count < 4)
+            {
+                //get random index
+                int index = random.Next(0, values.Count);
+                var value = values[index];
+                //remove that answer
+                values.RemoveAt(index);
+                //if it isnt the answer, add it to list
+                if (value.Value != CategoryValue)
+                {
+                    categoryAnswers.Add(value.Value);
+                }
+            }
+            return categoryAnswers;
+        }
+
+        //----------------------------------------------------------------------------------
+        /// <summary>
+        /// Returns a list answers of answers for the sub category
+        /// </summary>
+        public List<DeweyDecimal> SelectSubCatAnswers()
+        {
+            List<DeweyDecimal> subCatAnswers = new List<DeweyDecimal>();
+            subCatAnswers.Add(SubCatValue); //guarentees answer is added
+            var values = root.Children[this.mainIndex].Children[this.catIndex].Children.ToList();
+
+            //adding from root
+            while (subCatAnswers.Count < 4)
+            {
+                //get random index
+                int index = random.Next(0, values.Count);
+                var value = values[index];
+                //remove that answer
+                values.RemoveAt(index);
+                //if it isnt the answer, add it to list
+                if (value.Value != SubCatValue)
+                {
+                    subCatAnswers.Add(value.Value);
+                }
+            }
+            return subCatAnswers;
+        }
         //--
     }    
 }

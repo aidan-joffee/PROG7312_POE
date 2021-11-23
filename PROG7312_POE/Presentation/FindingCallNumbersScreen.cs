@@ -21,22 +21,32 @@ namespace PROG7312_POE.Presentation
             GetTree();
         }
 
+        /// <summary>
+        /// Method to create the tree to use for the quiz
+        /// </summary>
         public void GetTree()
         {
             findingCallNumbers = new FindingCallNumbers();
             TreeNode root = findingCallNumbers.CreateTree();
-            foreach(var child in root.Children)
+        }
+
+        /// <summary>
+        /// Mmethod to get a random node and its parents for the quiz question
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newGameBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            findingCallNumbers.RandomNode();
+            List<DeweyDecimal> list = findingCallNumbers.SelectSubCatAnswers();
+            foreach(var item in list)
             {
-                richTextBox1.AppendText(child.Value.ToString() + "\n");
-                foreach(var subChild in child.Children)
-                {
-                    richTextBox1.AppendText("\t" + subChild.Value.ToString() + "\n");
-                    foreach(var subSubChild in subChild.Children)
-                    {
-                        richTextBox1.AppendText("\t\t" + subSubChild.Value.ToString() + "\n");
-                    }
-                }
+                richTextBox1.AppendText(item.ToString() + "\n");
             }
+            //richTextBox1.AppendText("Main: "+findingCallNumbers.MainValue.ToString());
+            //richTextBox1.AppendText("\nCategory: " + findingCallNumbers.CategoryValue.ToString());
+            //richTextBox1.AppendText("\nSubCategory: " + findingCallNumbers.SubCatValue.ToString());
         }
     }
 }

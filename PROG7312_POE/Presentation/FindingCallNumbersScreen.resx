@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="gameInfoBox.Text" xml:space="preserve">
+    <value>Select the correct call number category based on the description being shown. If the correct category is select, the next level of call number categories must be selected until the answer is retrieved. If an incorrect answer is selected at any stage, the question is deemed incorrect and the correct answer will be shown. </value>
+  </data>
 </root>
