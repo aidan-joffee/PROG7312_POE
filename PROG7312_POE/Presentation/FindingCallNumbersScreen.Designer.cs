@@ -32,19 +32,20 @@ namespace PROG7312_POE.Presentation
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindingCallNumbersScreen));
             this.gameInfoBox = new System.Windows.Forms.RichTextBox();
             this.descriptionToFindLbl = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.answerBox1 = new System.Windows.Forms.CheckBox();
-            this.answerBox2 = new System.Windows.Forms.CheckBox();
-            this.answerBox3 = new System.Windows.Forms.CheckBox();
-            this.answerBox4 = new System.Windows.Forms.CheckBox();
             this.newGameBtn = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.groupBox1.SuspendLayout();
+            this.answerBtn1 = new System.Windows.Forms.Button();
+            this.answerBtn2 = new System.Windows.Forms.Button();
+            this.answerBtn3 = new System.Windows.Forms.Button();
+            this.answerBtn4 = new System.Windows.Forms.Button();
+            this.answerPanel = new System.Windows.Forms.Panel();
+            this.answerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // gameInfoBox
             // 
-            this.gameInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gameInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gameInfoBox.Location = new System.Drawing.Point(321, 12);
             this.gameInfoBox.Name = "gameInfoBox";
             this.gameInfoBox.ReadOnly = true;
@@ -57,65 +58,11 @@ namespace PROG7312_POE.Presentation
             this.descriptionToFindLbl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.descriptionToFindLbl.AutoSize = true;
             this.descriptionToFindLbl.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionToFindLbl.Location = new System.Drawing.Point(304, 197);
+            this.descriptionToFindLbl.Location = new System.Drawing.Point(315, 175);
             this.descriptionToFindLbl.Name = "descriptionToFindLbl";
             this.descriptionToFindLbl.Size = new System.Drawing.Size(84, 32);
             this.descriptionToFindLbl.TabIndex = 1;
             this.descriptionToFindLbl.Text = "Label1";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.groupBox1.Controls.Add(this.answerBox4);
-            this.groupBox1.Controls.Add(this.answerBox3);
-            this.groupBox1.Controls.Add(this.answerBox2);
-            this.groupBox1.Controls.Add(this.answerBox1);
-            this.groupBox1.Location = new System.Drawing.Point(113, 285);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(491, 89);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // answerBox1
-            // 
-            this.answerBox1.AutoSize = true;
-            this.answerBox1.Location = new System.Drawing.Point(17, 39);
-            this.answerBox1.Name = "answerBox1";
-            this.answerBox1.Size = new System.Drawing.Size(106, 21);
-            this.answerBox1.TabIndex = 0;
-            this.answerBox1.Text = "answerBox1";
-            this.answerBox1.UseVisualStyleBackColor = true;
-            // 
-            // answerBox2
-            // 
-            this.answerBox2.AutoSize = true;
-            this.answerBox2.Location = new System.Drawing.Point(131, 39);
-            this.answerBox2.Name = "answerBox2";
-            this.answerBox2.Size = new System.Drawing.Size(106, 21);
-            this.answerBox2.TabIndex = 1;
-            this.answerBox2.Text = "answerBox2";
-            this.answerBox2.UseVisualStyleBackColor = true;
-            // 
-            // answerBox3
-            // 
-            this.answerBox3.AutoSize = true;
-            this.answerBox3.Location = new System.Drawing.Point(254, 39);
-            this.answerBox3.Name = "answerBox3";
-            this.answerBox3.Size = new System.Drawing.Size(106, 21);
-            this.answerBox3.TabIndex = 2;
-            this.answerBox3.Text = "answerBox3";
-            this.answerBox3.UseVisualStyleBackColor = true;
-            // 
-            // answerBox4
-            // 
-            this.answerBox4.AutoSize = true;
-            this.answerBox4.Location = new System.Drawing.Point(373, 39);
-            this.answerBox4.Name = "answerBox4";
-            this.answerBox4.Size = new System.Drawing.Size(106, 21);
-            this.answerBox4.TabIndex = 3;
-            this.answerBox4.Text = "answerBox4";
-            this.answerBox4.UseVisualStyleBackColor = true;
             // 
             // newGameBtn
             // 
@@ -130,29 +77,79 @@ namespace PROG7312_POE.Presentation
             this.newGameBtn.UseVisualStyleBackColor = false;
             this.newGameBtn.Click += new System.EventHandler(this.newGameBtn_Click);
             // 
-            // richTextBox1
+            // answerBtn1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(223, 121);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(348, 247);
-            this.richTextBox1.TabIndex = 24;
-            this.richTextBox1.Text = "";
+            this.answerBtn1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.answerBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.answerBtn1.Location = new System.Drawing.Point(42, 22);
+            this.answerBtn1.Name = "answerBtn1";
+            this.answerBtn1.Size = new System.Drawing.Size(203, 61);
+            this.answerBtn1.TabIndex = 24;
+            this.answerBtn1.Text = "answerBtn1";
+            this.answerBtn1.UseVisualStyleBackColor = true;
+            this.answerBtn1.Click += new System.EventHandler(this.answerBtn_Click);
+            // 
+            // answerBtn2
+            // 
+            this.answerBtn2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.answerBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.answerBtn2.Location = new System.Drawing.Point(349, 22);
+            this.answerBtn2.Name = "answerBtn2";
+            this.answerBtn2.Size = new System.Drawing.Size(203, 61);
+            this.answerBtn2.TabIndex = 25;
+            this.answerBtn2.Text = "answerBtn2";
+            this.answerBtn2.UseVisualStyleBackColor = true;
+            this.answerBtn2.Click += new System.EventHandler(this.answerBtn_Click);
+            // 
+            // answerBtn3
+            // 
+            this.answerBtn3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.answerBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.answerBtn3.Location = new System.Drawing.Point(42, 131);
+            this.answerBtn3.Name = "answerBtn3";
+            this.answerBtn3.Size = new System.Drawing.Size(203, 61);
+            this.answerBtn3.TabIndex = 26;
+            this.answerBtn3.Text = "answerBtn3";
+            this.answerBtn3.UseVisualStyleBackColor = true;
+            this.answerBtn3.Click += new System.EventHandler(this.answerBtn_Click);
+            // 
+            // answerBtn4
+            // 
+            this.answerBtn4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.answerBtn4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.answerBtn4.Location = new System.Drawing.Point(349, 131);
+            this.answerBtn4.Name = "answerBtn4";
+            this.answerBtn4.Size = new System.Drawing.Size(203, 61);
+            this.answerBtn4.TabIndex = 27;
+            this.answerBtn4.Text = "answerBtn4";
+            this.answerBtn4.UseVisualStyleBackColor = true;
+            this.answerBtn4.Click += new System.EventHandler(this.answerBtn_Click);
+            // 
+            // answerPanel
+            // 
+            this.answerPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.answerPanel.Controls.Add(this.answerBtn1);
+            this.answerPanel.Controls.Add(this.answerBtn3);
+            this.answerPanel.Controls.Add(this.answerBtn4);
+            this.answerPanel.Controls.Add(this.answerBtn2);
+            this.answerPanel.Location = new System.Drawing.Point(62, 246);
+            this.answerPanel.Name = "answerPanel";
+            this.answerPanel.Size = new System.Drawing.Size(593, 219);
+            this.answerPanel.TabIndex = 28;
             // 
             // FindingCallNumbersScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 503);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.answerPanel);
             this.Controls.Add(this.newGameBtn);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.descriptionToFindLbl);
             this.Controls.Add(this.gameInfoBox);
             this.MinimumSize = new System.Drawing.Size(750, 550);
             this.Name = "FindingCallNumbersScreen";
             this.Text = "FindingCallNumbersScreen";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.answerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,12 +159,11 @@ namespace PROG7312_POE.Presentation
 
         private System.Windows.Forms.RichTextBox gameInfoBox;
         private System.Windows.Forms.Label descriptionToFindLbl;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox answerBox4;
-        private System.Windows.Forms.CheckBox answerBox3;
-        private System.Windows.Forms.CheckBox answerBox2;
-        private System.Windows.Forms.CheckBox answerBox1;
         private System.Windows.Forms.Button newGameBtn;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button answerBtn1;
+        private System.Windows.Forms.Button answerBtn2;
+        private System.Windows.Forms.Button answerBtn3;
+        private System.Windows.Forms.Button answerBtn4;
+        private System.Windows.Forms.Panel answerPanel;
     }
 }
