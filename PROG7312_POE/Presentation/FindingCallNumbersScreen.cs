@@ -24,6 +24,7 @@ namespace PROG7312_POE.Presentation
         {
             InitializeComponent();
             GetTree();
+            StartNewGame();
         }
 
         //----------------------------------------------------------------------------------
@@ -53,6 +54,10 @@ namespace PROG7312_POE.Presentation
         /// </summary>
         private void StartNewGame()
         {
+            //showing questions panel and hiding end panel
+            gameEndedPanel.Visible = false;
+            answerPanel.Visible = true;
+
             findingCallNumbers.RandomNode();
             descriptionToFindLbl.Text = findingCallNumbers.SubCatValue.DescriptionPart; //display value to find
             questionNum++;
@@ -65,27 +70,28 @@ namespace PROG7312_POE.Presentation
         /// </summary>
         private void GenerateAnswers()
         {
+            List<DeweyDecimal> unshuffledAnswers = new List<DeweyDecimal>();
             switch(questionNum)
             {
                 case 1:
                     //main
-                    answersList = findingCallNumbers.SelectMainAnswers();
+                    unshuffledAnswers = findingCallNumbers.SelectMainAnswers();
                     correctAnswer = findingCallNumbers.MainValue;
-                    DisplayButtons();
                     break;
                 case 2:
                     //category
-                    answersList = findingCallNumbers.SelectCategoryAnswers();
+                    unshuffledAnswers = findingCallNumbers.SelectCategoryAnswers();
                     correctAnswer = findingCallNumbers.CategoryValue;
-                    DisplayButtons();
+                    
                     break;
                 case 3:
                     //subcategory
-                    answersList = findingCallNumbers.SelectSubCatAnswers();
+                    unshuffledAnswers = findingCallNumbers.SelectSubCatAnswers();
                     correctAnswer = findingCallNumbers.SubCatValue;
-                    DisplayButtons();
                     break;
             }
+            answersList = findingCallNumbers.ShuffleAnswers(unshuffledAnswers);
+            DisplayButtons();
         }
 
         //----------------------------------------------------------------------------------
@@ -130,13 +136,14 @@ namespace PROG7312_POE.Presentation
 
             if(answer == correctAnswer)
             {
-                if(questionNum != 3)
+                //correct
+                if (questionNum == 3)
                 {
-                    EndGame();
+                    EndGame(true); //theyve won the game
+                    ColorButtons(false, button); //colour correct button
                 }
                 else
-                {
-                    //correct
+                {                   
                     questionNum++;
                     GenerateAnswers(); //display next set of answers
                 }               
@@ -144,33 +151,64 @@ namespace PROG7312_POE.Presentation
             else
             {
                 //incorrect
-                questionNum = 0; //reset numbers
-                //update button color
+                ColorButtons(true, button);    
+                //end the game
+                EndGame(false);              
+            }
+        }
+
+        //----------------------------------------------------------------------------------
+        /// <summary>
+        /// Method to color the buttons if correct/incorrect
+        /// </summary>
+        /// <param name="isWrong"></param>
+        /// <param name="btn"></param>
+        protected void ColorButtons(bool isWrong, Button button)
+        {
+            if(isWrong)
+            {
                 button.BackColor = Color.Red;
                 button.ForeColor = Color.Red;
-                
-                //find correct answer button
-                foreach (var btn in buttons)
+            }
+
+            //find correct answer button
+            foreach (var btn in buttons)
+            {
+                btn.Enabled = false;
+                if (btn.Tag == correctAnswer)
                 {
-                    btn.Enabled = false;
-                    if (btn.Tag == correctAnswer)
-                    {
-                        btn.BackColor = Color.Green;
-                        btn.ForeColor = Color.Green;
-                    }
+                    btn.BackColor = Color.Green;
+                    btn.ForeColor = Color.Green;
                 }
             }
         }
 
+        //----------------------------------------------------------------------------------
         /// <summary>
-        /// method if the final answer given by the user is correct
+        /// method for when the final answer is selected
         /// </summary>
-        protected void EndGame()
+        protected void EndGame(bool isCorrect)
         {
-
+            //hiding the answers and showing game results screen
+            gameEndedPanel.Visible = true;
+            if (isCorrect)
+            {
+                //correct, game won               
+                gameResultLbl.Text = "You won!";
+                gameResultLbl.ForeColor = Color.Green;
+            }
+            else
+            {
+                //incorrect, game lost
+                gameResultLbl.Text = "You lost";
+                gameResultLbl.ForeColor = Color.Red;
+            }
+            //display final answer
+            questionNum = 0;
+            descriptionToFindLbl.Text = correctAnswer.ToString();
         }
 
-      //--
+        //--
     }
 }
 //-------------------------------------end of file---------------------------------------------

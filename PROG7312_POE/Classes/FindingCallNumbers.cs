@@ -181,6 +181,28 @@ namespace PROG7312_POE.Classes
             }
             return subCatAnswers;
         }
+
+        //----------------------------------------------------------------------------------
+        /// <summary>
+        /// Method to randomly shuffle the answers of the question
+        /// </summary>
+        /// <returns></returns>
+        public List<DeweyDecimal> ShuffleAnswers(List<DeweyDecimal> listToShuffle)
+        {
+            List<DeweyDecimal> shuffledList = listToShuffle;
+            int i = shuffledList.Count;
+            while (i > 1)
+            {
+                i--;
+                int index = random.Next(i + 1);
+                //swapping values randomly
+                DeweyDecimal value = shuffledList[index];
+                shuffledList[index] = shuffledList[i];
+                shuffledList[i] = value;
+            }
+            return shuffledList;
+        }
+
         //--
     }    
 }
