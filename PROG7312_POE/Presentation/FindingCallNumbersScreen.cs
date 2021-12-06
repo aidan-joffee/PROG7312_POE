@@ -35,6 +35,9 @@ namespace PROG7312_POE.Presentation
         {
             findingCallNumbers = new FindingCallNumbers();
             TreeNode root = findingCallNumbers.CreateTree();
+            //setting score values
+            findingCallNumbers.gameNumber = 1; 
+            findingCallNumbers.totalScore = 0;
         }
 
         //----------------------------------------------------------------------------------
@@ -45,6 +48,11 @@ namespace PROG7312_POE.Presentation
         /// <param name="e"></param>
         private void newGameBtn_Click(object sender, EventArgs e)
         {
+            findingCallNumbers.gameNumber++; //increase game number
+            findingCallNumbers.currentSCore = 0; //reset current score
+            currentScoreLbl.Text = "0";
+            GameNumLbl.Text = String.Format("Game {0}:", findingCallNumbers.gameNumber);
+            newGameBtn.Enabled = false;
             StartNewGame();
         }
 
@@ -137,6 +145,9 @@ namespace PROG7312_POE.Presentation
             if(answer == correctAnswer)
             {
                 //correct
+                //increase current score
+                findingCallNumbers.currentSCore++;
+                currentScoreLbl.Text = String.Format("{0}/3", findingCallNumbers.currentSCore);
                 if (questionNum == 3)
                 {
                     EndGame(true); //theyve won the game
@@ -189,7 +200,8 @@ namespace PROG7312_POE.Presentation
         /// </summary>
         protected void EndGame(bool isCorrect)
         {
-            //hiding the answers and showing game results screen
+            newGameBtn.Enabled = true; //renable new game btn
+            //showing game results screen
             gameEndedPanel.Visible = true;
             if (isCorrect)
             {
@@ -203,9 +215,25 @@ namespace PROG7312_POE.Presentation
                 gameResultLbl.Text = "You lost";
                 gameResultLbl.ForeColor = Color.Red;
             }
+            //update score
+            UpdateTotalScore();
             //display final answer
             questionNum = 0;
             descriptionToFindLbl.Text = correctAnswer.ToString();
+        }
+
+        //----------------------------------------------------------------------------------
+        /// <summary>
+        /// Method to update the score of the game
+        /// </summary>
+        private void UpdateTotalScore()
+        {           
+            //increase total score if game is over       
+            findingCallNumbers.totalScore += findingCallNumbers.currentSCore;
+            //updating labels
+            int total = findingCallNumbers.totalScore;
+            int totalQuestions = (findingCallNumbers.gameNumber * 3);
+            totalScoreLbl.Text = String.Format("{0}/{1}",total, totalQuestions);
         }
 
         //--

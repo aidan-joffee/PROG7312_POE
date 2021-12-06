@@ -16,6 +16,10 @@ namespace PROG7312_POE.Classes
         private Random random = new Random();
         private int mainIndex;
         private int catIndex;
+        //gamification features
+        public int totalScore { get; set; } //total score for question
+        public int currentSCore { get; set; } //current score for question
+        public int gameNumber { get; set; } //gameNumber
         //each value here is the answer to the question generated for the different levels
         public DeweyDecimal MainValue { get; set; }
         public DeweyDecimal CategoryValue { get; set; }
